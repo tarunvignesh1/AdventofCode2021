@@ -4,17 +4,26 @@ using namespace std;
 
 int greaternum(vector<int> num){
     int n=num.size(),count=0;
-    for(int i=0;i<n-1;i++){
-        if(num[i+1]>num[i])
+    for(int i=1;i<n;i++){
+        if(num[i]>num[i-1])
         count++;
     }
     return count;
 
 }
 
+int threesum(vector<int> num){
+  int n=num.size(),count = 0;
+  for(int i=2;i<n-1;i++)
+    if(num[i]+num[i-1]+num[i-2]<num[i]+num[i-1]+num[i+1])
+    count++;
+
+  return count;
+}
+
 
 int main(){
-
+  vector<int> test={199,200,208,210,200,207,240,269,260,263};
     vector<int> num={
        140,
 154,
@@ -2018,5 +2027,6 @@ int main(){
 3596, 
     };
 
-    cout<<greaternum(num);
+    cout<<greaternum(num)<<endl;
+    cout<<threesum(num)<<endl;
 }
